@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dns-tester
+  labels:
+    app: dns-tester
+spec:
+  containers:
+  - name: dns-tester
+    image: thomaschaaf/dns-tester:latest
+    env:
+      - name: DNS_NAME
+        value: 'kubernetes.default.svc.cluster.local'
+      - name: DNS_NAME_TIMEOUT
+        value: '300'
+      - name: WAIT_BETWEEN_REQUESTS
+        value: '50'
